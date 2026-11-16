@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ritwickdey.LiveServer",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "PKief.material-icon-theme",
+    "GitHub.copilot-chat"
+  ]
+}
