@@ -19,8 +19,10 @@
 ## Публікація
 
 - GitHub repository: https://github.com/arseniicherevkopp2025-cmyk/webfridge
-- GitHub Pages: URL буде додано після активації Pages.
-- Netlify: URL буде додано після розгортання.
+- GitHub Pages: https://arseniicherevkopp2025-cmyk.github.io/webfridge/
+- Netlify: https://peaceful-faun-db7da8.netlify.app/
+
+GitHub Pages публікує гілку `main` із кореневої папки. Netlify-версію опубліковано через Netlify Drop із ZIP-архіву; автоматичний зв'язок Netlify з GitHub не налаштовано.
 
 ## Автор
 
