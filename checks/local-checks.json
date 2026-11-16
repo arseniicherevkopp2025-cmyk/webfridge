@@ -1,0 +1,54 @@
+[
+  {
+    "file": "example.html",
+    "errors": []
+  },
+  {
+    "file": "feedback.html",
+    "errors": []
+  },
+  {
+    "file": "index.html",
+    "errors": []
+  },
+  {
+    "file": "input-error.html",
+    "errors": []
+  },
+  {
+    "file": "loading.html",
+    "errors": []
+  },
+  {
+    "file": "no-purchases.html",
+    "errors": []
+  },
+  {
+    "file": "no-results.html",
+    "errors": []
+  },
+  {
+    "file": "products.html",
+    "errors": []
+  },
+  {
+    "file": "recipe-no-oil.html",
+    "errors": []
+  },
+  {
+    "file": "recipe.html",
+    "errors": []
+  },
+  {
+    "file": "recipes.html",
+    "errors": []
+  },
+  {
+    "file": "service-error.html",
+    "errors": []
+  },
+  {
+    "file": "thanks.html",
+    "errors": []
+  }
+]
