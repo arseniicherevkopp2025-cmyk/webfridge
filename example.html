@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Холодильник студента: прості рецепти з наявних продуктів і бюджетом на докупку."
+    />
+    <title>Приклад продуктів — Холодильник студента</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/icons/fontawesome.css" />
+    <link rel="stylesheet" href="assets/icons/solid.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: { lg: "1101px" },
+            colors: {
+              background: "var(--color-background)",
+              surface: "var(--color-surface)",
+              text: "var(--color-text)",
+              muted: "var(--color-muted)",
+              green: "var(--color-green)",
+              "soft-green": "var(--color-soft-green)",
+              "green-hover": "#256640",
+              orange: "var(--color-orange)",
+              yellow: "var(--color-yellow)",
+              "yellow-hover": "#f2ad2e",
+              border: "var(--color-border)",
+              error: "var(--color-error)",
+            },
+            borderRadius: { DEFAULT: "var(--radius)" },
+            boxShadow: {
+              pixel: "var(--shadow)",
+              "pixel-active": "2px 2px 0 var(--color-text)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      sessionStorage.setItem("loadProductExample", "true");
+      window.location.replace("products.html");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до вмісту</a>
+    <!-- Шапка. Flexbox розташовує логотип і меню в одному рядку. -->
+    <header
+      class="header site-container flex items-center justify-between gap-3 md:gap-6 min-h-20 md:min-h-24"
+    >
+      <a class="logo flex items-center gap-3" href="index.html"
+        ><img src="assets/images/logo.png" alt="" width="30" height="42" /><span
+          >ХОЛОДИЛЬНИК<br />СТУДЕНТА</span
+        ></a
+      >
+      <nav
+        class="nav hidden md:flex items-center gap-4 min-[1101px]:gap-16"
+        aria-label="Основна навігація"
+      >
+        <a href="index.html#how-it-works">Як це працює</a
+        ><a
+          class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] bg-yellow border-text text-text shadow-pixel transition-colors duration-150 hover:bg-yellow-hover hover:no-underline active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed"
+          href="products.html"
+          >Підібрати рецепт</a
+        ><a href="index.html#about">Про проєкт</a>
+      </nav>
+      <!-- Вбудований HTML-елемент: меню працює без JavaScript. -->
+      <details class="mobile-menu flex md:hidden items-center">
+        <summary class="flex min-h-11 items-center gap-2 py-2">Меню</summary>
+        <nav
+          class="nav flex flex-col items-start gap-5 p-5 border-2 border-green bg-background shadow-pixel"
+          aria-label="Мобільна навігація"
+        >
+          <a href="index.html#how-it-works">Як це працює</a
+          ><a
+            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] bg-yellow border-text text-text shadow-pixel transition-colors duration-150 hover:bg-yellow-hover hover:no-underline active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed"
+            href="products.html"
+            >Підібрати рецепт</a
+          ><a href="index.html#about">Про проєкт</a>
+        </nav>
+      </details>
+    </header>
+    <main class="site-container page" id="main">
+      <p class="eyebrow">01 ПРОДУКТИ / 02 РЕЦЕПТИ / 03 ГОТУЄМО</p>
+      <div class="form-layout">
+        <section class="form-illustration" aria-labelledby="products-title">
+          <h1 class="pixel-title accent" id="products-title">Що є у тебе?</h1>
+          <p class="muted">Почни з продуктів, які вже маєш.</p>
+          <figure>
+            <img src="assets/images/fridge.png" alt="" width="288" height="296" />
+            <figcaption class="green">Твій холодильник — відправна точка.</figcaption>
+          </figure>
+        </section>
+        <!-- GET відкриває демонстраційний стан. Алгоритму підбору тут ще немає. -->
+        <form class="panel" action="loading.html" method="get">
+          <div class="field">
+            <label class="green" for="ingredients">Твої продукти</label>
+            <input
+              id="ingredients"
+              name="ingredients"
+              type="text"
+              placeholder="Наприклад: рис, яйця, цибуля"
+              value="Рис, яйця, цибуля, сіль"
+              required
+            />
+            <ul class="tags" aria-label="Продукти з прикладу">
+              <li>Рис</li>
+              <li>Яйця</li>
+              <li>Цибуля</li>
+              <li>Сіль</li>
+            </ul>
+            <a class="example-link" href="example.html"
+              >Спробувати приклад: рис, яйця, цибуля, сіль →</a
+            >
+          </div>
+          <div class="field">
+            <label for="budget">Бюджет на докупку, ₴</label
+            ><input
+              id="budget"
+              name="budget"
+              type="number"
+              min="0"
+              max="10000"
+              value="50"
+              required
+            />
+            <p class="note">Можна нічого не купувати.</p>
+          </div>
+          <div class="filter-groups">
+            <fieldset>
+              <legend>Час</legend>
+              <label class="option"
+                ><input type="radio" name="time" value="30" checked /> До 30 хв</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend>Порції</legend>
+              <label class="option"
+                ><input type="radio" name="servings" value="2" checked /> 2 порції</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend>Обладнання</legend>
+              <label class="option"
+                ><input type="radio" name="equipment" value="stove" checked />
+                Плита</label
+              >
+            </fieldset>
+          </div>
+          <button
+            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] shadow-pixel transition-colors duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed bg-yellow border-text text-text hover:bg-yellow-hover hover:no-underline w-full button button--wide"
+            type="submit"
+          >
+            Підібрати рецепт <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+          <p class="note">
+            Навчальний приклад: форма відкриває готовий набір рецептів. Введені умови ще
+            не обробляються.
+          </p>
+        </form>
+      </div>
+    </main>
+    <footer
+      class="site-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 border-t-2 border-border bg-soft-green px-6 py-8 text-text"
+      id="about"
+    >
+      <section aria-labelledby="footer-project-title" class="flex flex-col gap-2">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-project-title">
+          Холодильник студента
+        </h2>
+        <p class="m-0 text-sm text-muted">
+          Прості рецепти з продуктів, які вже є, та вашого бюджету.
+        </p>
+      </section>
+      <nav aria-labelledby="footer-nav-title" class="flex flex-col items-start gap-1">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-nav-title">Навігація</h2>
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="index.html"
+          >Головна</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="index.html#how-it-works"
+          >Як це працює</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="products.html"
+          >Підібрати рецепт</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="recipes.html"
+          >Рецепти</a
+        >
+      </nav>
+      <section aria-labelledby="footer-contact-title" class="flex flex-col gap-2">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-contact-title">
+          Контакти
+        </h2>
+        <address class="flex flex-col gap-1 not-italic text-sm text-muted">
+          <a
+            class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+            href="tel:+380XX-XXX-XX-XX"
+            >[+380 XX XXX XX XX]</a
+          >
+          <a
+            class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+            href="mailto:name@example.com"
+            >[name@example.com]</a
+          >
+          <span class="inline-flex min-h-11 items-center">Львів, Україна</span>
+        </address>
+      </section>
+      <section
+        aria-labelledby="footer-social-title"
+        class="flex flex-col items-start gap-1"
+      >
+        <h2 class="m-0 text-base font-bold text-text" id="footer-social-title">
+          Ми в соцмережах
+        </h2>
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="https://t.me/fkfkgk"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Telegram · @fkfkgk</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="https://www.instagram.com/fkfkgk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram · @fkfkgk</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="https://www.facebook.com/fkfkgk"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Facebook · @fkfkgk</a
+        >
+      </section>
+      <p
+        class="m-0 border-t border-border pt-4 text-sm text-muted md:col-span-2 lg:col-span-4"
+      >
+        © 2026 Холодильник студента · Навчальний проєкт
+      </p>
+    </footer>
+  </body>
+</html>

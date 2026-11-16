@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Холодильник студента: прості рецепти з наявних продуктів і бюджетом на докупку."
+    />
+    <title>Головна — Холодильник студента</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/icons/fontawesome.css" />
+    <link rel="stylesheet" href="assets/icons/solid.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: { lg: "1101px" },
+            fontFamily: { heading: "var(--font-heading)" },
+            colors: {
+              background: "var(--color-background)",
+              surface: "var(--color-surface)",
+              text: "var(--color-text)",
+              muted: "var(--color-muted)",
+              green: "var(--color-green)",
+              "soft-green": "var(--color-soft-green)",
+              "green-hover": "#256640",
+              orange: "var(--color-orange)",
+              yellow: "var(--color-yellow)",
+              "yellow-hover": "#f2ad2e",
+              border: "var(--color-border)",
+              error: "var(--color-error)",
+            },
+            borderRadius: { DEFAULT: "var(--radius)" },
+            boxShadow: {
+              pixel: "var(--shadow)",
+              "pixel-active": "2px 2px 0 var(--color-text)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/fridge-sounds.js" defer></script>
+    <script src="js/landing-widgets.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до вмісту</a>
+    <!-- Шапка. Flexbox розташовує логотип і меню в одному рядку. -->
+    <header
+      class="header site-container flex items-center justify-between gap-3 md:gap-6 min-h-20 md:min-h-24"
+    >
+      <a class="logo flex items-center gap-3" href="index.html"
+        ><img src="assets/images/logo.png" alt="" width="30" height="42" /><span
+          >ХОЛОДИЛЬНИК<br />СТУДЕНТА</span
+        ></a
+      >
+      <nav
+        class="nav hidden md:flex items-center gap-4 min-[1101px]:gap-16"
+        aria-label="Основна навігація"
+      >
+        <a href="#benefits">Переваги</a
+        ><a href="#recipes">Рецепти</a
+        ><a
+          class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] bg-yellow border-text text-text shadow-pixel transition-colors duration-150 hover:bg-yellow-hover hover:no-underline active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed"
+          href="products.html"
+          >Підібрати рецепт</a
+        ><a href="#media">Відео</a
+        ><a href="#shops">Магазини</a>
+      </nav>
+      <!-- Вбудований HTML-елемент: меню працює без JavaScript. -->
+      <details class="mobile-menu flex md:hidden items-center">
+        <summary class="flex min-h-11 items-center gap-2 py-2">Меню</summary>
+        <nav
+          class="nav flex flex-col items-start gap-5 p-5 border-2 border-green bg-background shadow-pixel"
+          aria-label="Мобільна навігація"
+        >
+          <a href="#benefits">Переваги</a
+          ><a href="#recipes">Рецепти</a
+          ><a href="#media">Відео</a
+          ><a href="#shops">Магазини</a
+          ><a
+            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] bg-yellow border-text text-text shadow-pixel transition-colors duration-150 hover:bg-yellow-hover hover:no-underline active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed"
+            href="products.html"
+            >Підібрати рецепт</a
+          ><a href="#about">Про проєкт</a>
+        </nav>
+      </details>
+    </header>
+    <main class="site-container" id="main">
+      <!-- Головний банер із затвердженої версії V2. -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">ПРОДУКТИ + БЮДЖЕТ = ВЕЧЕРЯ</p>
+          <h1 id="hero-title">
+            Готуй із того,<br /><span class="accent">що є вдома.</span>
+          </h1>
+          <p class="hero-subtitle">Докуповуй у межах бюджету.</p>
+          <p class="muted">
+            Прості рецепти з наявних продуктів.<br />Ти задаєш час і ліміт на докупку.
+          </p>
+          <a
+            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] shadow-pixel transition-colors duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed bg-yellow border-text text-text hover:bg-yellow-hover hover:no-underline button"
+            href="products.html"
+            >Підібрати рецепт <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
+          <p class="note green">Без реєстрації · Можна з бюджетом 0 ₴</p>
+        </div>
+        <figure>
+          <a href="products.html" aria-label="Додати свої продукти"
+            ><div
+              class="fridge"
+              role="img"
+              aria-label="Піксельний холодильник відчиняється; усередині молоко, яйця, морква, капуста й апельсини"
+            >
+              <img
+                class="fridge-base"
+                src="assets/images/fridge-animation/base.png"
+                alt=""
+              />
+              <img
+                class="fridge-item fridge-milk"
+                src="assets/images/fridge-animation/milk.png"
+                alt=""
+              />
+              <img
+                class="fridge-item fridge-eggs"
+                src="assets/images/fridge-animation/eggs.png"
+                alt=""
+              />
+              <img
+                class="fridge-egg fridge-egg-one"
+                src="assets/images/fridge-animation/eggs.png"
+                alt=""
+              />
+              <img
+                class="fridge-egg fridge-egg-two"
+                src="assets/images/fridge-animation/eggs.png"
+                alt=""
+              />
+              <img
+                class="fridge-egg fridge-egg-three"
+                src="assets/images/fridge-animation/eggs.png"
+                alt=""
+              />
+              <img
+                class="fridge-item fridge-carrot"
+                src="assets/images/fridge-animation/carrot.png"
+                alt=""
+              />
+              <img
+                class="fridge-carrot-leaves"
+                src="assets/images/fridge-animation/carrot.png"
+                alt=""
+              />
+              <img
+                class="fridge-item fridge-cabbage"
+                src="assets/images/fridge-animation/cabbage.png"
+                alt=""
+              />
+              <img
+                class="fridge-item fridge-oranges"
+                src="assets/images/fridge-animation/oranges.png"
+                alt=""
+              />
+              <div class="fridge-dark" aria-hidden="true"></div>
+              <div class="fridge-fog" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <img
+                class="fridge-door-closed"
+                src="assets/images/fridge-animation/closed.png"
+                alt=""
+              />
+              <img
+                class="fridge-door-open"
+                src="assets/images/fridge-animation/door.png"
+                alt=""
+              /></div
+          ></a>
+          <figcaption class="green">Твій холодильник — відправна точка.</figcaption>
+          <button
+            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] shadow-pixel transition-colors duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed bg-green border-green text-white hover:bg-green-hover hover:no-underline button button--secondary fridge-sound-toggle"
+            id="fridge-sound-toggle"
+            type="button"
+            aria-pressed="false"
+          >
+            Увімкнути звуки
+          </button>
+          <p
+            class="note fridge-sound-status"
+            id="fridge-sound-status"
+            aria-live="polite"
+          ></p>
+        </figure>
+      </section>
+      <section class="landing-section benefits" id="benefits" aria-labelledby="benefits-title">
+        <div class="section-heading">
+          <p class="eyebrow">МЕНШЕ ВИТРАТ — МЕНШЕ ВІДХОДІВ</p>
+          <h2 class="pixel-title green" id="benefits-title">Вечеря починається з того, що є</h2>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">01</span>
+            <h3>Використай продукти</h3>
+            <p>Починай з того, що вже лежить у холодильнику, і знаходь для цього просту страву.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">02</span>
+            <h3>Тримай бюджет</h3>
+            <p>Зазнач суму на докупку й одразу бач, чи вкладається рецепт у твій ліміт.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">03</span>
+            <h3>Готуй без зайвого</h3>
+            <p>Короткі інструкції та знайомі інгредієнти допоможуть швидше перейти до вечері.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Три кроки: нумерований список, розкладений через Grid. -->
+      <section class="landing-section steps" id="how-it-works" aria-labelledby="steps-title">
+        <div class="section-heading">
+          <p class="eyebrow">ТРИ ПРОСТІ КРОКИ</p>
+          <h2 class="pixel-title green" id="steps-title">Як це працює</h2>
+        </div>
+        <ol
+          class="steps-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 m-0 p-0 list-none"
+        >
+          <li
+            class="border-2 border-text p-5 bg-background max-[700px]:border-0 max-[700px]:p-0 max-[700px]:grid max-[700px]:grid-cols-[44px_minmax(0,1fr)] max-[700px]:gap-x-3 max-[700px]:gap-y-2 max-[700px]:bg-transparent"
+          >
+            <span
+              class="step-number row-span-2 block text-orange font-heading text-[21px] leading-[1.6] mb-4 max-[700px]:text-lg"
+              >01</span
+            >
+            <h2
+              class="text-green text-[21px] mb-2 max-[700px]:col-start-2 max-[700px]:text-xl max-[700px]:m-0"
+            >
+              Додай продукти
+            </h2>
+            <p class="text-muted text-[15px] m-0 max-[700px]:col-start-2">
+              Вкажи, що вже є вдома.
+            </p>
+          </li>
+          <li
+            class="border-2 border-text p-5 bg-background max-[700px]:border-0 max-[700px]:p-0 max-[700px]:grid max-[700px]:grid-cols-[44px_minmax(0,1fr)] max-[700px]:gap-x-3 max-[700px]:gap-y-2 max-[700px]:bg-transparent"
+          >
+            <span
+              class="step-number row-span-2 block text-orange font-heading text-[21px] leading-[1.6] mb-4 max-[700px]:text-lg"
+              >02</span
+            >
+            <h2
+              class="text-green text-[21px] mb-2 max-[700px]:col-start-2 max-[700px]:text-xl max-[700px]:m-0"
+            >
+              Задай ліміт
+            </h2>
+            <p class="text-muted text-[15px] m-0 max-[700px]:col-start-2">
+              Навіть 0 ₴ на докупку.
+            </p>
+          </li>
+          <li
+            class="border-2 border-text p-5 bg-background max-[700px]:border-0 max-[700px]:p-0 max-[700px]:grid max-[700px]:grid-cols-[44px_minmax(0,1fr)] max-[700px]:gap-x-3 max-[700px]:gap-y-2 max-[700px]:bg-transparent"
+          >
+            <span
+              class="step-number row-span-2 block text-orange font-heading text-[21px] leading-[1.6] mb-4 max-[700px]:text-lg"
+              >03</span
+            >
+            <h2
+              class="text-green text-[21px] mb-2 max-[700px]:col-start-2 max-[700px]:text-xl max-[700px]:m-0"
+            >
+              Обери страву
+            </h2>
+            <p class="text-muted text-[15px] m-0 max-[700px]:col-start-2">
+              Подивись склад і витрати.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="landing-section featured-recipes" id="recipes" aria-labelledby="recipes-title">
+        <div class="section-heading section-heading--row">
+          <div>
+            <p class="eyebrow">ПЕРЕВІРЕНІ ІДЕЇ ДЛЯ ВЕЧЕРІ</p>
+            <h2 class="pixel-title green" id="recipes-title">Що можна приготувати</h2>
+          </div>
+          <a class="text-link" href="recipes.html">Усі рецепти <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="featured-grid">
+          <article class="featured-card">
+            <img src="assets/images/pixel-rice-pan.png" alt="Ілюстрація рису з яйцем і цибулею на пательні" width="384" height="256" loading="lazy" />
+            <div class="featured-card__body">
+              <p class="eyebrow">20 ХВ · 2 ПОРЦІЇ</p>
+              <h3>Рис із яйцем і цибулею</h3>
+              <p>Ситна страва з доступних продуктів. Орієнтовна докупка — 38 ₴.</p>
+              <a class="button button--secondary" href="recipe.html">Переглянути рецепт <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="featured-card">
+            <img src="assets/images/pixel-rice-egg.png" alt="Ілюстрація рису з яйцем без олії" width="384" height="256" loading="lazy" />
+            <div class="featured-card__body">
+              <p class="eyebrow">20 ХВ · БЕЗ ДОКУПКИ</p>
+              <h3>Рис із яйцем без олії</h3>
+              <p>Варіант, коли всі потрібні продукти вже є вдома.</p>
+              <a class="button button--secondary" href="recipe-no-oil.html">Переглянути рецепт <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-section about-project" id="about" aria-labelledby="about-project-title">
+        <div>
+          <p class="eyebrow">ПРО ПРОЄКТ</p>
+          <h2 class="pixel-title green" id="about-project-title">Планування вечері без зайвих витрат</h2>
+          <p class="muted">«Холодильник студента» — навчальний проєкт про прості страви з продуктів, які вже є вдома. Його ідея — допомогти швидко перейти від списку продуктів до рецепта, враховуючи бюджет на докупку.</p>
+        </div>
+        <ol class="about-steps">
+          <li><strong>Вкажи продукти</strong><span>Почни зі свого холодильника.</span></li>
+          <li><strong>Задай бюджет</strong><span>Визнач суму на потрібну докупку.</span></li>
+          <li><strong>Обери рецепт</strong><span>Перевір склад, час і спосіб приготування.</span></li>
+        </ol>
+      </section>
+
+      <section class="landing-section recipe-tools" id="tools" aria-labelledby="tools-title">
+        <div class="section-heading">
+          <p class="eyebrow">ІНСТРУМЕНТИ ДЛЯ КУХНІ</p>
+          <h2 class="pixel-title green" id="tools-title">Порахуй порцію та список покупок</h2>
+          <p class="muted">Зміни кількість порцій — інгредієнти перерахуються автоматично. Познач те, що вже є вдома.</p>
+        </div>
+        <div class="portion-card" data-portion-calculator>
+          <div class="portion-card__top">
+            <div>
+              <p class="eyebrow">РИС ІЗ ЯЙЦЕМ ТА ЦИБУЛЕЮ</p>
+              <p class="portion-caption">Базовий рецепт розрахований на 2 порції.</p>
+            </div>
+            <label class="servings-control" for="servings-count">Порцій
+              <input id="servings-count" type="number" min="1" max="8" value="2" inputmode="numeric" aria-describedby="servings-help" />
+            </label>
+          </div>
+          <p class="note" id="servings-help">Введи число від 1 до 8. Кількість інгредієнтів оновиться автоматично.</p>
+          <ul class="ingredient-checklist" id="ingredient-checklist" aria-label="Інгредієнти рецепта">
+            <li data-ingredient="Рис" data-amount="150" data-unit="г"><label><input type="checkbox" checked /> <span class="ingredient-name">Рис</span></label><output>150 г</output></li>
+            <li data-ingredient="Яйця" data-amount="2" data-unit="шт."><label><input type="checkbox" checked /> <span class="ingredient-name">Яйця</span></label><output>2 шт.</output></li>
+            <li data-ingredient="Цибуля" data-amount="1" data-unit="шт."><label><input type="checkbox" /> <span class="ingredient-name">Цибуля</span></label><output>1 шт.</output></li>
+            <li data-ingredient="Олія" data-amount="15" data-unit="мл"><label><input type="checkbox" /> <span class="ingredient-name">Олія</span></label><output>15 мл</output></li>
+            <li data-ingredient="Сіль" data-amount="0" data-unit="за смаком"><label><input type="checkbox" checked /> <span class="ingredient-name">Сіль</span></label><output>за смаком</output></li>
+          </ul>
+          <div class="shopping-summary" aria-live="polite">
+            <p class="shopping-summary__title">Потрібно докупити</p>
+            <p id="shopping-list-result">Цибуля, олія</p>
+          </div>
+          <button class="button copy-list-button" id="copy-shopping-list" type="button">Скопіювати список</button>
+          <p class="note" id="copy-status" aria-live="polite"></p>
+        </div>
+        <aside class="external-widget" aria-labelledby="external-widget-title">
+          <div>
+            <p class="eyebrow">ЗОВНІШНІЙ ВІДЖЕТ · UTILS.COM</p>
+            <h3 id="external-widget-title">Масштабуй будь-який рецепт</h3>
+            <p>Встав рецепт або додай інгредієнти вручну — віджет перераховує кількості для потрібної кількості порцій.</p>
+          </div>
+          <!-- Сторонній динамічний віджет: вбудований сервіс перерахунку порцій. -->
+          <div class="iframe-frame iframe-frame--widget">
+            <iframe src="https://recipe-scaler.utils.com/" title="Зовнішній калькулятор Recipe Scaler для перерахунку інгредієнтів" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-write" height="760"></iframe>
+          </div>
+          <p class="note">Віджет надає <a href="https://recipe-scaler.utils.com/" target="_blank" rel="noopener noreferrer">Recipe Scaler від Utils.com</a>; його інтерфейс англійською мовою.</p>
+        </aside>
+        <aside class="budget-widget" data-weekly-budget aria-labelledby="weekly-budget-title">
+          <div class="budget-widget__heading">
+            <p class="eyebrow">ПЛАНУВАННЯ НА ТИЖДЕНЬ</p>
+            <h3 id="weekly-budget-title">Скільки можна витратити на їжу?</h3>
+            <p class="muted">Вкажи бюджет, уже витрачену суму та кількість прийомів їжі, що залишилися. Дані збережуться в цьому браузері.</p>
+          </div>
+          <div class="budget-inputs">
+            <label for="weekly-budget-total">Бюджет на тиждень, ₴
+              <input id="weekly-budget-total" type="number" min="0" step="50" value="2000" inputmode="decimal" />
+            </label>
+            <label for="weekly-budget-spent">Уже витрачено, ₴
+              <input id="weekly-budget-spent" type="number" min="0" step="50" value="750" inputmode="decimal" />
+            </label>
+            <label for="weekly-budget-meals">Прийомів їжі залишилось
+              <input id="weekly-budget-meals" type="number" min="1" max="50" step="1" value="10" inputmode="numeric" />
+            </label>
+          </div>
+          <div class="budget-result" aria-live="polite" aria-atomic="true">
+            <p id="weekly-budget-summary"><strong>Залишилось 1 250 ₴</strong> · орієнтир 125 ₴ на прийом їжі.</p>
+            <div class="budget-progress" id="weekly-budget-progress" role="progressbar" aria-label="Витрачена частина тижневого бюджету" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38">
+              <span id="weekly-budget-progress-bar"></span>
+            </div>
+            <p class="note" id="weekly-budget-progress-label">Використано 38% бюджету</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="landing-section media-section" id="media" aria-labelledby="media-title">
+        <div class="section-heading">
+          <p class="eyebrow">ГОТУЙ РАЗОМ З ВІДЕО</p>
+          <h2 class="pixel-title green" id="media-title">Чотири прості ідеї для вечері</h2>
+          <p class="muted">Рис, гречка, паста й картопля — доступні продукти та зрозумілі страви на щодень.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <h3>Смажений рис із яйцем</h3>
+            <div class="iframe-frame iframe-frame--video">
+              <iframe src="https://www.youtube-nocookie.com/embed/WnOgMEMxDho?rel=0" title="Відеорецепт: смажений рис з яйцем від Олександра Зерова" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p>Швидка вечеря з рису та яєць. <a href="https://www.youtube.com/watch?v=WnOgMEMxDho" target="_blank" rel="noopener noreferrer">Відкрити на YouTube ↗</a></p>
+          </article>
+          <article class="video-card">
+            <h3>Гречка з грибами</h3>
+            <div class="iframe-frame iframe-frame--video">
+              <iframe src="https://www.youtube-nocookie.com/embed/3fs8PFazTQA?rel=0" title="Відеорецепт: гречка з грибами, Cooking Guide Ukraine" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p>Проста ситна страва з крупи й грибів. <a href="https://www.youtube.com/watch?v=3fs8PFazTQA" target="_blank" rel="noopener noreferrer">Відкрити на YouTube ↗</a></p>
+          </article>
+          <article class="video-card">
+            <h3>Паста з тунцем за 10 хвилин</h3>
+            <div class="iframe-frame iframe-frame--video">
+              <iframe src="https://www.youtube-nocookie.com/embed/4EG1082KC4o?rel=0" title="Відеорецепт: паста з тунцем за 10 хвилин від Марко Черветті" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p>Паста з тунцем, олією та зеленню. <a href="https://life.nv.ua/ukr/food-drink/pasta-z-tuncem-recept-yak-prigotuvati-za-10-hvilin-video-50067028.html" target="_blank" rel="noopener noreferrer">Рецепт і відео від NV ↗</a></p>
+          </article>
+          <article class="video-card">
+            <h3>Три способи приготувати картоплю</h3>
+            <div class="iframe-frame iframe-frame--video">
+              <iframe src="https://www.youtube-nocookie.com/embed/sHIxiwQu97o?rel=0" title="Три рецепти картоплі: пюре, смажена та конфі від Євгена Клопотенка" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p>Три варіанти страви з доступної картоплі. <a href="https://www.youtube.com/watch?v=sHIxiwQu97o" target="_blank" rel="noopener noreferrer">Відкрити на YouTube ↗</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-section map-section" id="shops" aria-labelledby="shops-title">
+        <div class="section-heading section-heading--row">
+          <div>
+            <p class="eyebrow">ЗНАЙДИ ПРОДУКТИ ПОРУЧ</p>
+            <h2 class="pixel-title green" id="shops-title">Продуктові магазини у Львові</h2>
+            <p class="muted">Перевір розташування магазинів, якщо для рецепта бракує кількох інгредієнтів.</p>
+          </div>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&query=продуктові+магазини+Львів" target="_blank" rel="noopener noreferrer">Відкрити карту <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="media-figure">
+          <!-- Медіаінтеграція: інтерактивна Google Maps карта магазинів. -->
+          <div class="iframe-frame iframe-frame--map">
+            <iframe src="https://maps.google.com/maps?q=supermarkets%20Lviv%20Ukraine&t=&z=13&ie=UTF8&iwloc=&output=embed" title="Карта продуктових магазинів у Львові" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <figcaption>Інтерактивна карта Google Maps; відкрий її окремо, щоб прокласти маршрут.</figcaption>
+        </figure>
+      </section>
+
+      <section class="landing-cta" aria-labelledby="cta-title">
+        <div>
+          <p class="eyebrow">ЧАС ПЕРЕВІРИТИ ХОЛОДИЛЬНИК</p>
+          <h2 class="pixel-title" id="cta-title">Знайди вечерю з того, що вже маєш</h2>
+          <p>Додай продукти, задай бюджет і подивись, що можна приготувати сьогодні.</p>
+        </div>
+        <a class="button cta-button" href="products.html">Підібрати рецепт <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+    <footer
+      class="site-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 border-t-2 border-border bg-soft-green px-6 py-8 text-text"
+      id="site-footer"
+    >
+      <section aria-labelledby="footer-project-title" class="flex flex-col gap-2">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-project-title">
+          Холодильник студента
+        </h2>
+        <p class="m-0 text-sm text-muted">
+          Прості рецепти з продуктів, які вже є, та вашого бюджету.
+        </p>
+      </section>
+      <nav aria-labelledby="footer-nav-title" class="flex flex-col items-start gap-1">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-nav-title">Навігація</h2>
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="index.html"
+          >Головна</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="index.html#how-it-works"
+          >Як це працює</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="products.html"
+          >Підібрати рецепт</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="recipes.html"
+          >Рецепти</a
+        >
+      </nav>
+      <section aria-labelledby="footer-contact-title" class="flex flex-col gap-2">
+        <h2 class="m-0 text-base font-bold text-text" id="footer-contact-title">
+          Контакти
+        </h2>
+        <address class="flex flex-col gap-1 not-italic text-sm text-muted">
+          <a
+            class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+            href="feedback.html"
+            >Повідомити про неточність</a
+          >
+          <span class="inline-flex min-h-11 items-center">Львів, Україна</span>
+        </address>
+      </section>
+      <section
+        aria-labelledby="footer-tools-title"
+        class="flex flex-col items-start gap-1"
+      >
+        <h2 class="m-0 text-base font-bold text-text" id="footer-tools-title">
+          Корисні розділи
+        </h2>
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="#tools"
+          >Калькулятор порцій</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="#media"
+          >Відеорецепт</a
+        >
+        <a
+          class="inline-flex min-h-11 items-center text-sm text-text hover:text-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-2"
+          href="#shops"
+          >Карта магазинів</a
+        >
+      </section>
+      <p
+        class="m-0 border-t border-border pt-4 text-sm text-muted md:col-span-2 lg:col-span-4"
+      >
+        © 2026 Холодильник студента · Навчальний проєкт
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+
+# Local secrets and generated dependencies
+.env
+.env.*
+node_modules/
+dist/
+coverage/
+*.log
+
+# Historical starter files are not part of the published Lab 7 site
+/before/
