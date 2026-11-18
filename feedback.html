@@ -42,6 +42,7 @@
     </script>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/fridge-sounds.js" defer></script>
+    <script src="js/feedback-validation.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти до вмісту</a>
@@ -90,38 +91,87 @@
         ><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> До рецепта</a
       >
       <section class="feedback" aria-labelledby="feedback-title">
-        <h1 id="feedback-title">Що варто виправити?</h1>
-        <p class="muted">Допоможи зробити наступний підбір кращим.</p>
-        <form action="thanks.html" method="get">
-          <fieldset>
-            <legend>Тип звернення</legend>
-            <div class="options">
-              <label class="option"
-                ><input type="radio" name="type" value="price" checked /> Неточна
-                ціна</label
-              ><label class="option"
-                ><input type="radio" name="type" value="recipe" /> Інгредієнт або
-                крок</label
-              >
+        <p class="eyebrow">ЗВОРОТНИЙ ЗВ’ЯЗОК · РЕЦЕПТИ Й ПОКУПКИ</p>
+        <h1 id="feedback-title">Допоможи зробити сервіс кращим</h1>
+        <p class="muted feedback-intro">
+          Повідом про неточність у рецепті, продукті чи ціні. Перевірка відбувається
+          у браузері; ця навчальна форма не надсилає дані на сервер.
+        </p>
+        <form class="feedback-form panel" id="feedbackForm" novalidate>
+          <div class="feedback-fields grid grid-cols-1 min-[701px]:grid-cols-2 gap-5">
+            <div class="field">
+              <label for="username">Ім’я</label>
+              <input id="username" name="username" type="text" autocomplete="name"
+                minlength="2" maxlength="60" required aria-invalid="false"
+                aria-describedby="nameHelp nameError" />
+              <p class="field-help" id="nameHelp">Щонайменше 2 символи.</p>
+              <p class="field-error" id="nameError" aria-live="polite" hidden></p>
             </div>
-          </fieldset>
-          <div class="field">
-            <label for="comment">Коментар</label
-            ><textarea
-              id="comment"
-              placeholder="Ціна упаковки олії у моєму магазині інша."
-            ></textarea>
+            <div class="field">
+              <label for="email">Електронна пошта</label>
+              <input id="email" name="email" type="email" autocomplete="email"
+                inputmode="email" maxlength="120" required aria-invalid="false"
+                aria-describedby="emailHelp emailError" />
+              <p class="field-help" id="emailHelp">Наприклад, name@example.com.</p>
+              <p class="field-error" id="emailError" aria-live="polite" hidden></p>
+            </div>
+            <div class="field">
+              <label for="phone">Номер телефону</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel"
+                inputmode="tel" maxlength="13" placeholder="+380501234567"
+                required aria-invalid="false" aria-describedby="phoneHelp phoneError" />
+              <p class="field-help" id="phoneHelp">Формат: +380 і ще 9 цифр, без пробілів.</p>
+              <p class="field-error" id="phoneError" aria-live="polite" hidden></p>
+            </div>
+            <div class="field">
+              <label for="topic">Тема звернення</label>
+              <select id="topic" name="topic" class="feedback-control">
+                <option value="recipe">Рецепт або інгредієнт</option>
+                <option value="price">Ціна чи магазин</option>
+                <option value="other">Інше</option>
+              </select>
+            </div>
+            <div class="field feedback-message-field">
+              <label for="message">Повідомлення</label>
+              <textarea id="message" name="message" rows="5" minlength="10"
+                maxlength="1000" required aria-invalid="false"
+                aria-describedby="messageHelp messageError"></textarea>
+              <p class="field-help" id="messageHelp">Опиши питання щонайменше 10 символами.</p>
+              <p class="field-error" id="messageError" aria-live="polite" hidden></p>
+            </div>
+            <div class="field feedback-agreement-field">
+              <label class="agreement-label" for="agreement">
+                <input id="agreement" name="agreement" type="checkbox" required
+                  aria-invalid="false" aria-describedby="privacyNote agreementError" />
+                <span>Погоджуюся на обробку даних для демонстрації форми.</span>
+              </label>
+              <p class="field-help" id="privacyNote">
+                Дані перевіряються лише в браузері та не зберігаються й не надсилаються.
+              </p>
+              <p class="field-error" id="agreementError" aria-live="polite" hidden></p>
+            </div>
           </div>
-          <button
-            class="inline-flex items-center justify-center gap-3 min-h-[52px] px-5 py-3 border-2 border-solid rounded text-base font-bold leading-[1.4] shadow-pixel transition-colors duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-pixel-active focus-visible:outline-[3px] focus-visible:outline-green focus-visible:outline-offset-4 disabled:bg-border disabled:shadow-none disabled:cursor-not-allowed bg-yellow border-text text-text hover:bg-yellow-hover hover:no-underline button"
-            type="submit"
-          >
-            Показати підтвердження
+          <button class="button feedback-submit" type="submit">
+            Перевірити та надіслати
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </button>
-          <p class="note">Демонстраційна форма. Дані нікому не надсилаються.</p>
+          <p class="note feedback-disclaimer" id="formStatus" aria-live="polite">
+            Надсилання тут демонстраційне: реального сервера немає.
+          </p>
         </form>
       </section>
+      <div class="feedback-modal" id="successModal" role="dialog" aria-modal="true"
+        aria-labelledby="successTitle" aria-describedby="successDescription" hidden>
+        <div class="feedback-modal__card" tabindex="-1">
+          <p class="eyebrow">ГОТОВО</p>
+          <h2 id="successTitle">Перевірку пройдено</h2>
+          <p id="successDescription">
+            Форма успішно пройшла клієнтську валідацію. Це демонстрація надсилання:
+            повідомлення не передано на сервер.
+          </p>
+          <button class="button" id="closeModalBtn" type="button">Закрити</button>
+        </div>
+      </div>
     </main>
 
     <footer
