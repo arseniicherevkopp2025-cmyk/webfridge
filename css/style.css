@@ -215,10 +215,13 @@ summary {
 /* Grid: текст ліворуч, холодильник праворуч. */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: 72px;
   padding: 60px 0 64px;
+}
+.hero > figure {
+  min-width: 0;
 }
 .hero h1 {
   font: 32px/1.7 var(--font-heading);
