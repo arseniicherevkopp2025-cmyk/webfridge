@@ -1,0 +1,235 @@
+.dinner-media {
+  --swiper-theme-color: #2e754b;
+  --swiper-pagination-bullet-inactive-color: #6f7c68;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+}
+.dinner-intro {
+  max-width: 640px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 12px 0 24px;
+}
+.dinner-swiper {
+  padding: 4px 4px 12px;
+  overflow: hidden;
+}
+.dinner-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.dinner-swiper .swiper-slide {
+  height: auto;
+  box-sizing: border-box;
+}
+.dinner-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #fffdf7;
+  border: 2px solid #253a2c;
+  box-shadow: 4px 4px 0 #dce3d2;
+  padding: 20px;
+}
+.dinner-card__art {
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2e7;
+  margin: 0 0 20px;
+}
+.dinner-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.dinner-card h3 {
+  font: 700 21px/1.3 var(--font-body, Inter, sans-serif);
+  color: #244c34;
+  margin: 8px 0 12px;
+}
+.dinner-card p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: #62705f;
+}
+.dinner-card .dinner-card__tag {
+  margin-top: 20px !important;
+  padding-top: 14px;
+  border-top: 1px solid #dce3d2;
+  color: #28734a !important;
+  font-weight: 600;
+  font-size: 12px !important;
+}
+.dinner-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.dinner-arrows {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.dinner-arrow,
+.dinner-pause {
+  border: 2px solid #253a2c;
+  min-width: 48px;
+  min-height: 48px;
+  background: #fffdf7;
+  color: #234b33;
+  cursor: pointer;
+  font:
+    600 14px/1.2 Inter,
+    sans-serif;
+  padding: 12px 16px;
+  box-shadow: 3px 3px 0 #dce3d2;
+}
+.dinner-arrow {
+  font-size: 24px;
+  padding: 6px 12px;
+}
+.dinner-pause {
+  background: #ffbf43;
+  color: #192b20;
+}
+.dinner-arrow:hover,
+.dinner-pause:hover {
+  background: #e5eddf;
+}
+.dinner-pagination {
+  position: static !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  width: auto !important;
+}
+.dinner-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 8px !important;
+}
+.dinner-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+.dinner-gallery-item {
+  display: block;
+  border: 2px solid #253a2c;
+  background: #fffdf7;
+  padding: 16px;
+  color: #244c34;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #dce3d2;
+  transition: transform 0.15s;
+}
+.dinner-gallery-item:hover {
+  transform: translateY(-3px);
+}
+.dinner-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: #f0f2e7;
+  margin-bottom: 14px;
+}
+.dinner-gallery-item strong {
+  display: block;
+  font:
+    600 15px/1.4 Inter,
+    sans-serif;
+}
+.dinner-gallery-item span {
+  display: block;
+  font-size: 12px;
+  color: #60725c;
+  margin-top: 6px;
+}
+.dinner-gallery-item:focus-visible,
+.dinner-media button:focus-visible {
+  outline: 3px solid #286d46;
+  outline-offset: 5px;
+}
+.dinner-notice {
+  padding: 12px 16px;
+  border-left: 4px solid #b67516;
+  background: #fff1cc;
+  line-height: 1.6;
+}
+.dinner-swiper:not(.swiper-initialized) .swiper-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  transform: none !important;
+}
+.fancybox__caption {
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  text-align: center;
+}
+.fancybox__content img {
+  image-rendering: pixelated;
+}
+@media (max-width: 1000px) {
+  .dinner-gallery-grid,
+  .dinner-swiper:not(.swiper-initialized) .swiper-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dinner-controls {
+    gap: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .dinner-gallery-grid {
+    gap: 12px;
+  }
+  .dinner-gallery-item {
+    padding: 10px;
+  }
+  .dinner-gallery-item img {
+    height: 110px;
+  }
+  .dinner-gallery-item strong {
+    font-size: 13px;
+  }
+  .dinner-swiper:not(.swiper-initialized) .swiper-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .dinner-controls {
+    justify-content: center;
+  }
+  .dinner-pagination {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .dinner-card__art {
+    height: 170px;
+  }
+  .dinner-pause {
+    flex: 1;
+    max-width: 240px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dinner-gallery-item {
+    transition: none;
+  }
+  .fancybox__container * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.dinner-controls[hidden],
+.dinner-notice[hidden] {
+  display: none !important;
+}

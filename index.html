@@ -44,7 +44,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/fridge-sounds.js" defer></script>
     <script src="js/landing-widgets.js" defer></script>
-  </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css">
+<link rel="stylesheet" href="css/lab10-media.css">
+</head>
   <body>
     <a class="skip-link" href="#main">Перейти до вмісту</a>
     <!-- Шапка. Flexbox розташовує логотип і меню в одному рядку. -->
@@ -281,35 +284,249 @@
         </ol>
       </section>
 
-      <section class="landing-section featured-recipes" id="recipes" aria-labelledby="recipes-title">
-        <div class="section-heading section-heading--row">
-          <div>
-            <p class="eyebrow">ПЕРЕВІРЕНІ ІДЕЇ ДЛЯ ВЕЧЕРІ</p>
-            <h2 class="pixel-title green" id="recipes-title">Що можна приготувати</h2>
-          </div>
-          <a class="text-link" href="recipes.html">Усі рецепти <span aria-hidden="true">→</span></a>
+<section
+  class="landing-section dinner-media"
+  id="recipes"
+  aria-labelledby="recipes-title"
+>
+  <div class="section-heading section-heading--row">
+    <div>
+      <p class="eyebrow">ШІСТЬ ПРОСТИХ ІДЕЙ</p>
+      <h2 class="pixel-title green" id="recipes-title">
+        Що сьогодні на вечерю?
+      </h2>
+    </div>
+    <a class="text-link" href="products.html">Додати свої продукти →</a>
+  </div>
+  <p class="dinner-intro">
+    Погортай ідеї та знайди настрій для вечері. Для рецепта з того, що вже є
+    вдома, додай свої продукти.
+  </p>
+  <div
+    class="swiper dinner-swiper"
+    aria-label="Ідеї страв для студентської вечері"
+  >
+    <div class="swiper-wrapper">
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/rice.png"
+            alt="Піксельна ілюстрація страви рис із яйцем"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
         </div>
-        <div class="featured-grid">
-          <article class="featured-card">
-            <img src="assets/images/pixel-rice-pan.png" alt="Ілюстрація рису з яйцем і цибулею на пательні" width="384" height="256" loading="lazy" />
-            <div class="featured-card__body">
-              <p class="eyebrow">20 ХВ · 2 ПОРЦІЇ</p>
-              <h3>Рис із яйцем і цибулею</h3>
-              <p>Ситна страва з доступних продуктів. Орієнтовна докупка — 38 ₴.</p>
-              <a class="button button--secondary" href="recipe.html">Переглянути рецепт <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="featured-card">
-            <img src="assets/images/pixel-rice-egg.png" alt="Ілюстрація рису з яйцем без олії" width="384" height="256" loading="lazy" />
-            <div class="featured-card__body">
-              <p class="eyebrow">20 ХВ · БЕЗ ДОКУПКИ</p>
-              <h3>Рис із яйцем без олії</h3>
-              <p>Варіант, коли всі потрібні продукти вже є вдома.</p>
-              <a class="button button--secondary" href="recipe-no-oil.html">Переглянути рецепт <span aria-hidden="true">→</span></a>
-            </div>
-          </article>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 25 хв</p>
+        <h3>Рис із яйцем</h3>
+        <p>Рис, яйця та цибуля — знайомі продукти для ситної вечері.</p>
+        <p class="dinner-card__tag">Крупи та яйця</p>
+      </article>
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/pasta.png"
+            alt="Піксельна ілюстрація страви паста з томатами"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
         </div>
-      </section>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 25 хв</p>
+        <h3>Паста з томатами</h3>
+        <p>Паста, томати й трохи сиру — коли хочеться чогось простого.</p>
+        <p class="dinner-card__tag">Макарони та овочі</p>
+      </article>
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/porridge.png"
+            alt="Піксельна ілюстрація страви гречка з овочами"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
+        </div>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 25 хв</p>
+        <h3>Гречка з овочами</h3>
+        <p>Тепла каша з овочами для швидкого домашнього обіду.</p>
+        <p class="dinner-card__tag">Крупи та овочі</p>
+      </article>
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/omelette.png"
+            alt="Піксельна ілюстрація страви омлет із зеленню"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
+        </div>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 15 хв</p>
+        <h3>Омлет із зеленню</h3>
+        <p>Яйця, зелень і кілька овочів для легкого сніданку.</p>
+        <p class="dinner-card__tag">Яйця та зелень</p>
+      </article>
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/wrap.png"
+            alt="Піксельна ілюстрація страви рулет із лаваша"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
+        </div>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 20 хв</p>
+        <h3>Рулет із лаваша</h3>
+        <p>Загорни у лаваш сир, яйце та овочі й підрум’янь на пательні.</p>
+        <p class="dinner-card__tag">Лаваш та сир</p>
+      </article>
+      <article class="swiper-slide dinner-card">
+        <div class="dinner-card__art">
+          <img
+            src="assets/images/dishes/stew.png"
+            alt="Піксельна ілюстрація страви овочеве рагу"
+            width="384"
+            height="256"
+            loading="lazy"
+          />
+        </div>
+        <p class="eyebrow">ІДЕЯ ДЛЯ ВЕЧЕРІ · 30 хв</p>
+        <h3>Овочеве рагу</h3>
+        <p>Збери сезонні овочі та приготуй яскраву страву на одній пательні.</p>
+        <p class="dinner-card__tag">Овочі та бобові</p>
+      </article>
+    </div>
+  </div>
+  <div class="dinner-controls">
+    <div class="dinner-arrows">
+      <button
+        class="dinner-arrow dinner-prev"
+        type="button"
+        aria-label="Попередні страви"
+      >
+        ←</button
+      ><button
+        class="dinner-arrow dinner-next"
+        type="button"
+        aria-label="Наступні страви"
+      >
+        →
+      </button>
+    </div>
+    <div class="swiper-pagination dinner-pagination"></div>
+    <button
+      class="dinner-pause"
+      id="dinnerAutoplay"
+      type="button"
+      aria-pressed="true"
+    >
+      Зупинити гортання
+    </button>
+  </div>
+  <p class="dinner-notice" id="mediaLibraryNotice" role="status" hidden></p>
+</section>
+<section
+  class="landing-section dinner-media"
+  id="dish-gallery"
+  aria-labelledby="dish-gallery-title"
+>
+  <div class="section-heading">
+    <p class="eyebrow">РОЗДИВИСЬ ПОДАЧУ</p>
+    <h2 class="pixel-title green" id="dish-gallery-title">Вечеря в пікселях</h2>
+    <p class="dinner-intro">
+      Натисни на ілюстрацію: збільшуй зображення й перегортай галерею. Це
+      приклади подачі, а склад страви обираєш ти.
+    </p>
+  </div>
+  <div class="dinner-gallery-grid">
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/rice.png"
+      data-fancybox="student-dinners"
+      data-caption="Рис із яйцем — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію рис із яйцем"
+      ><img
+        src="assets/images/dishes/rice.png"
+        alt="Рис із яйцем"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Рис із яйцем</strong><span>Роздивитися ближче ↗</span></a
+    >
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/pasta.png"
+      data-fancybox="student-dinners"
+      data-caption="Паста з томатами — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію паста з томатами"
+      ><img
+        src="assets/images/dishes/pasta.png"
+        alt="Паста з томатами"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Паста з томатами</strong><span>Роздивитися ближче ↗</span></a
+    >
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/porridge.png"
+      data-fancybox="student-dinners"
+      data-caption="Гречка з овочами — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію гречка з овочами"
+      ><img
+        src="assets/images/dishes/porridge.png"
+        alt="Гречка з овочами"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Гречка з овочами</strong><span>Роздивитися ближче ↗</span></a
+    >
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/omelette.png"
+      data-fancybox="student-dinners"
+      data-caption="Омлет із зеленню — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію омлет із зеленню"
+      ><img
+        src="assets/images/dishes/omelette.png"
+        alt="Омлет із зеленню"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Омлет із зеленню</strong><span>Роздивитися ближче ↗</span></a
+    >
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/wrap.png"
+      data-fancybox="student-dinners"
+      data-caption="Рулет із лаваша — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію рулет із лаваша"
+      ><img
+        src="assets/images/dishes/wrap.png"
+        alt="Рулет із лаваша"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Рулет із лаваша</strong><span>Роздивитися ближче ↗</span></a
+    >
+    <a
+      class="dinner-gallery-item"
+      href="assets/images/dishes/stew.png"
+      data-fancybox="student-dinners"
+      data-caption="Овочеве рагу — піксельна ілюстрація подачі"
+      aria-label="Відкрити ілюстрацію овочеве рагу"
+      ><img
+        src="assets/images/dishes/stew.png"
+        alt="Овочеве рагу"
+        width="384"
+        height="256"
+        loading="lazy"
+      /><strong>Овочеве рагу</strong><span>Роздивитися ближче ↗</span></a
+    >
+  </div>
+</section>
 
       <section class="landing-section about-project" id="about" aria-labelledby="about-project-title">
         <div>
@@ -524,5 +741,8 @@
         © 2026 Холодильник студента · Навчальний проєкт
       </p>
     </footer>
-  </body>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
+<script defer src="js/lab10-media.js"></script>
+</body>
 </html>
